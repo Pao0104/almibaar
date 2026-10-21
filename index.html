@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almíbar | Jabones Artesanales & Bienestar Natural CDMX</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            sage: '#7C9A78',
+                            sageLight: '#F0F4EF',
+                            peach: '#F8D7C9',
+                            peachLight: '#FFF5F0',
+                            butter: '#F9F1D0',
+                            butterDark: '#E6D79C',
+                            mint: '#CCE3DE',
+                            berry: '#E5989B',
+                            berryLight: '#FFF0F3',
+                            dark: '#26342F',
+                            muted: '#5C6E66'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .pastel-gradient {
+            background: linear-gradient(135deg, #FFF5F0 0%, #F0F4EF 50%, #F9F1D0 100%);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px -10px rgba(38, 52, 47, 0.12);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F0F4EF;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #7C9A78;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark bg-[#FAFAFA] antialiased selection:bg-brand-peach selection:text-brand-dark">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-sage text-white text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide shadow-inner">
+        ✨ <span>Jabones hechos con merma de fruta reutilizada en CDMX</span> • 
+        <a href="#destacados" class="underline underline-offset-4 hover:opacity-90">Envío gratis en CDMX en compras mayores a $499 MXN</a>
+    </div>
+
+    <!-- 1. HEADER (ENCABEZADO CON LOGO Y NAVEGACIÓN) -->
+    <header class="sticky top-0 z-40 bg-[#FAFAFA]/95 backdrop-blur-md border-b border-brand-sage/15 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                
+                <!-- Logo Oficial Almíbar -->
+                <a href="#" class="flex items-center gap-3.5 group">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-sageLight border border-brand-sage/30 flex items-center justify-center text-brand-sage shadow-sm group-hover:bg-brand-sage group-hover:text-white transition-all duration-300">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 8 0 5.5-4.5 10-10 10z"></path>
+                            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                        </svg>
+                    </div>
+                    
+                    <div class="flex flex-col">
+                        <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-dark leading-none">
+                            ALMÍBAR
+                        </span>
+                        <span class="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase font-bold text-brand-sage mt-1">
+                            Aroma y Bienestar
+                        </span>
+                        <span class="text-[8px] tracking-wider text-brand-muted uppercase hidden sm:block">
+                            Jabones Artesanales Naturales
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-dark/80">
+                    <a href="#inicio" class="hover:text-brand-sage transition-colors">Inicio</a>
+                    <a href="#destacados" class="hover:text-brand-sage transition-colors">Jabones Frutales</a>
+                    <a href="#proceso" class="hover:text-brand-sage transition-colors">Proceso Sustentable</a>
+                    <a href="#sucursales" class="hover:text-brand-sage transition-colors flex items-center gap-1.5">
+                        <span>Tiendas CDMX</span>
+                        <span class="bg-brand-peach text-brand-dark text-[10px] font-bold px-2 py-0.5 rounded-full">4</span>
+                    </a>
+                </nav>
+
+                <!-- Actions & Comprar Ahora Button -->
+                <div class="flex items-center space-x-4">
+                    <!-- Cart Button -->
+                    <button id="openCartBtn" class="relative p-2.5 text-brand-dark hover:text-brand-sage transition-colors focus:outline-none rounded-full hover:bg-brand-sageLight" aria-label="Ver Carrito">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span id="cartBadge" class="absolute top-0 right-0 bg-brand-berry text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">0</span>
+                    </button>
+
+                    <!-- Comprar Ahora Button -->
+                    <a href="#destacados" class="bg-brand-sage hover:bg-[#688364] text-white px-6 py-2.5 rounded-full font-medium text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2">
+                        <span>Comprar Ahora</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 text-brand-dark hover:text-brand-sage" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-brand-sage/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-base font-medium text-brand-dark hover:text-brand-sage">Inicio</a>
+            <a href="#destacados" class="block py-2 text-base font-medium text-brand-dark hover:text-brand-sage">Jabones Frutales</a>
+            <a href="#proceso" class="block py-2 text-base font-medium text-brand-dark hover:text-brand-sage">Proceso Sustentable</a>
+            <a href="#sucursales" class="block py-2 text-base font-medium text-brand-dark hover:text-brand-sage">Tiendas CDMX</a>
+        </div>
+    </header>
+
+    <!-- 2. SECCIÓN PRINCIPAL (HERO) -->
+    <section id="inicio" class="relative overflow-hidden pastel-gradient py-14 lg:py-20 border-b border-brand-sage/10">
+        <div class="absolute -top-12 -left-12 w-64 h-64 bg-brand-peach/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-12 w-80 h-80 bg-brand-mint/50 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full border border-brand-sage/20 text-xs font-semibold text-brand-dark shadow-sm">
+                        <span class="text-brand-sage">🥭 Hecho con merma de fruta</span>
+                        <span class="text-gray-300">•</span>
+                        <span>100% Biodegradable</span>
+                        <span class="text-gray-300">•</span>
+                        <span>CDMX</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight">
+                        Cuidado natural para tu piel que aprovecha la <span class="text-brand-sage underline decoration-brand-peach decoration-wavy decoration-2">riqueza de las frutas</span>.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-brand-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        En <strong>Almíbar</strong> rescatamos mermas de frutas y verduras en buen estado para transformarlas en jabones artesanales enriquecidos con vitaminas y antioxidantes. Explora nuestra amplia colección de fragancias naturales y visítanos en cualquiera de nuestras <strong>4 sucursales en la Ciudad de México</strong>.
+                    </p>
+
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#destacados" class="w-full sm:w-auto text-center bg-brand-dark hover:bg-black text-white px-8 py-3.5 rounded-full font-medium text-base transition-all shadow-lg hover:shadow-xl">
+                            Ver Productos Destacados
+                        </a>
+                        <a href="#sucursales" class="w-full sm:w-auto text-center bg-white hover:bg-brand-sageLight text-brand-dark border border-brand-sage/30 px-7 py-3.5 rounded-full font-medium text-base transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-location-dot text-brand-sage"></i>
+                            <span>Sucursales CDMX</span>
+                        </a>
+                    </div>
+
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-brand-sage/20 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-serif text-2xl font-bold text-brand-dark">100%</p>
+                            <p class="text-xs text-brand-muted">Ingredientes Naturales</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl font-bold text-brand-dark">4</p>
+                            <p class="text-xs text-brand-muted">Tiendas Físicas CDMX</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl font-bold text-brand-dark">0%</p>
+                            <p class="text-xs text-brand-muted">Químicos Tóxicos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Hero -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+                            <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&w=800&q=80" alt="Jabones artesanales de fruta Almíbar" class="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700">
+                            
+                            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-brand-sage/15 flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-brand-butter flex items-center justify-center text-2xl flex-shrink-0">
+                                    🥭
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-brand-sage block">Colección Destacada</span>
+                                    <h4 class="font-serif font-bold text-sm text-brand-dark truncate">Mango & Maracuyá • Limón & Menta</h4>
+                                    <p class="text-xs text-brand-muted">Jabones biodegradables curados a mano</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute -top-6 -right-4 z-20 bg-brand-butter rounded-2xl p-3 shadow-xl border border-white flex items-center gap-2 transform rotate-3 hover:rotate-0 transition-transform hidden sm:flex">
+                            <span class="text-xl">🍋</span>
+                            <div>
+                                <p class="text-[10px] font-bold text-brand-dark uppercase">Almíbar Box</p>
+                                <p class="text-xs font-serif font-bold text-brand-dark">Limón & Menta</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute -bottom-6 -left-4 z-20 bg-brand-peach rounded-2xl p-3 shadow-xl border border-white flex items-center gap-2 transform -rotate-3 hover:rotate-0 transition-transform hidden sm:flex">
+                            <span class="text-xl">🍓</span>
+                            <div>
+                                <p class="text-[10px] font-bold text-brand-dark uppercase">Almíbar Box</p>
+                                <p class="text-xs font-serif font-bold text-brand-dark">Fresa & Arándano</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute -bottom-8 -right-8 w-40 h-40 bg-brand-peach/80 rounded-full z-0"></div>
+                        <div class="absolute -top-8 -left-8 w-32 h-32 bg-brand-mint/80 rounded-full z-0"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER DE CONCIENCIA ECOLÓGICA -->
+    <section class="bg-brand-sageLight py-8 border-b border-brand-sage/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-brand-sage text-xl shadow-sm flex-shrink-0">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-lg text-brand-dark">Proceso de Rescate de Mermas</h3>
+                        <p class="text-sm text-brand-muted">Aprovechamos frutas deshidratadas, aceites vegetales puros y solución alcalina natural.</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm font-semibold text-brand-dark/80">
+                    <span class="bg-white px-3 py-1.5 rounded-full border border-brand-sage/20 flex items-center gap-1.5"><i class="fa-solid fa-check text-brand-sage"></i> Sin Parabenos</span>
+                    <span class="bg-white px-3 py-1.5 rounded-full border border-brand-sage/20 flex items-center gap-1.5"><i class="fa-solid fa-check text-brand-sage"></i> Cruelty-Free</span>
+                    <span class="bg-white px-3 py-1.5 rounded-full border border-brand-sage/20 flex items-center gap-1.5"><i class="fa-solid fa-check text-brand-sage"></i> Empaque Kraft</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN DE PRODUCTOS DESTACADOS -->
+    <section id="destacados" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-sage bg-brand-sageLight px-3.5 py-1.5 rounded-full inline-block">Catálogo Especial</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Nuestras Fórmulas Frutales Estrella</h2>
+            <p class="text-brand-muted text-base">Cada jabón es elaborado mediante saponificación fría para preservar las vitaminas de las frutas reutilizadas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Tarjeta 1: Mango & Maracuyá -->
+            <div class="bg-white rounded-3xl p-6 border border-brand-sage/15 card-hover flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute top-5 left-5 z-10 bg-amber-500 text-white text-xs font-semibold px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
+                    <span>🔥</span>
+                    <span>MÁS VENDIDO</span>
+                </div>
+                
+                <div>
+                    <div class="relative h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-butter">
+                        <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=700&q=80" alt="Jabón artesanal de Mango y Maracuyá Almíbar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs text-brand-muted mb-2">
+                        <span class="font-bold text-amber-600 uppercase tracking-wider">🥭 Mango & Maracuyá</span>
+                        <span><i class="fa-solid fa-star text-amber-400"></i> 4.9 (142 reseñas)</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Jabón Nutritivo Mango & Maracuyá</h3>
+                    
+                    <p class="text-sm text-brand-muted leading-relaxed mb-4">
+                        Elaborado con la pulpa de mangos y maracuyás rescatados. Su alto contenido en vitamina C ilumina la piel y estimula la producción de colágeno.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-4 mb-4">
+                        <div>
+                            <span class="text-xs text-brand-muted block">Precio por barra</span>
+                            <span class="font-serif text-2xl font-bold text-brand-dark">$135 MXN</span>
+                        </div>
+                        <span class="text-xs bg-brand-butterDark/40 text-brand-dark px-3 py-1 rounded-full font-semibold">Nutrición Frutal</span>
+                    </div>
+
+                    <button onclick="addToCart('Jabón Mango & Maracuyá', 135)" class="w-full bg-brand-sageLight hover:bg-brand-sage text-brand-dark hover:text-white font-medium py-3 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>Agregar al Carrito</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Limón & Menta -->
+            <div class="bg-white rounded-3xl p-6 border border-brand-sage/15 card-hover flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute top-5 left-5 z-10 bg-emerald-600 text-white text-xs font-semibold px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
+                    <span>🏷️</span>
+                    <span>DESCUENTO CDMX (20%)</span>
+                </div>
+
+                <div>
+                    <div class="relative h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-mint">
+                        <img src="https://images.unsplash.com/photo-1547793548-7a0e7dfdb24f?auto=format&fit=crop&w=700&q=80" alt="Jabón artesanal cítrico de Limón y Menta Almíbar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs text-brand-muted mb-2">
+                        <span class="font-bold text-emerald-700 uppercase tracking-wider">🍋 Limón & Menta</span>
+                        <span><i class="fa-solid fa-star text-amber-400"></i> 4.8 (98 reseñas)</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Jabón Refrescante Limón & Menta</h3>
+                    
+                    <p class="text-sm text-brand-muted leading-relaxed mb-4">
+                        Aprovecha cascarillas de cítricos para un efecto astringente y antiséptico natural. Ideal para refrescar la piel durante el día.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-4 mb-4">
+                        <div>
+                            <span class="text-xs text-gray-400 line-through block">$150 MXN</span>
+                            <span class="font-serif text-2xl font-bold text-emerald-700">$120 MXN</span>
+                        </div>
+                        <span class="text-xs bg-brand-mint text-brand-dark px-3 py-1 rounded-full font-semibold">Efecto Detox</span>
+                    </div>
+
+                    <button onclick="addToCart('Jabón Limón & Menta', 120)" class="w-full bg-brand-sageLight hover:bg-emerald-700 text-brand-dark hover:text-white font-medium py-3 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>Aprovechar Descuento</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Fresa & Arándano -->
+            <div class="bg-white rounded-3xl p-6 border border-brand-sage/15 card-hover flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute top-5 left-5 z-10 bg-brand-berry text-white text-xs font-semibold px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
+                    <span>✨</span>
+                    <span>NUEVA FÓRMULA</span>
+                </div>
+
+                <div>
+                    <div class="relative h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-berryLight">
+                        <img src="https://images.unsplash.com/photo-1629732047847-50219e98536b?auto=format&fit=crop&w=700&q=80" alt="Jabón artesanal exfoliante de Fresa y Arándano Almíbar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs text-brand-muted mb-2">
+                        <span class="font-bold text-brand-berry uppercase tracking-wider">🍓 Fresa & Arándano</span>
+                        <span><i class="fa-solid fa-star text-amber-400"></i> 5.0 (Novedad)</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Exfoliante Fresa & Arándano</h3>
+                    
+                    <p class="text-sm text-brand-muted leading-relaxed mb-4">
+                        Formulado con semillas trituradas de fresas y arándanos. Elimina suavemente células muertas mientras nutre la piel con antioxidantes.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-4 mb-4">
+                        <div>
+                            <span class="text-xs text-brand-muted block">Precio de lanzamiento</span>
+                            <span class="font-serif text-2xl font-bold text-brand-dark">$140 MXN</span>
+                        </div>
+                        <span class="text-xs bg-brand-peach/60 text-brand-dark px-3 py-1 rounded-full font-semibold">Exfoliante Suave</span>
+                    </div>
+
+                    <button onclick="addToCart('Exfoliante Fresa & Arándano', 140)" class="w-full bg-brand-peachLight hover:bg-brand-berry text-brand-dark hover:text-white font-medium py-3 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>Agregar al Carrito</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE SUCURSALES EN LA CDMX -->
+    <section id="sucursales" class="py-20 bg-brand-sageLight/60 border-t border-b border-brand-sage/15 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-sage">Puntos de Venta Físicos</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mt-1">Nuestras 4 Sucursales en la CDMX</h2>
+                    <p class="text-brand-muted text-sm sm:text-base mt-2 max-w-xl">
+                        Visita nuestras tiendas para oler las barras recién saponificadas y recargar tus jaboneras de forma 100% residuo cero.
+                    </p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-brand-sage/20 text-xs font-medium text-brand-dark shadow-sm">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Abiertas hoy • Entregas locales el mismo día
+                    </span>
+                </div>
+            </div>
+
+            <!-- Grid de Ubicaciones -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Roma Norte -->
+                <div class="bg-white rounded-3xl p-6 border border-brand-sage/15 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-brand-peachLight text-brand-dark flex items-center justify-center font-bold mb-4 text-base">📍</div>
+                        <h3 class="font-serif text-lg font-bold text-brand-dark">Roma Norte</h3>
+                        <p class="text-xs text-brand-muted mt-1 mb-4">Colima #184, Cuauhtémoc, CDMX</p>
+                        <div class="space-y-1.5 text-xs text-brand-dark/80 mb-6">
+                            <p><i class="fa-regular fa-clock text-brand-sage mr-2"></i>Lun - Dom: 10:00 - 20:00 hrs</p>
+                            <p><i class="fa-solid fa-phone text-brand-sage mr-2"></i>55 5208 9410</p>
+                        </div>
+                    </div>
+                    <button onclick="selectLocation('Roma Norte', 'Colima #184, Cuauhtémoc, CDMX', '10:00 - 20:00 hrs')" class="w-full text-center text-xs font-semibold text-brand-sage hover:text-brand-dark py-2.5 rounded-xl border border-brand-sage/20 hover:bg-brand-sageLight transition-colors">
+                        Ver Ubicación & Horarios
+                    </button>
+                </div>
+
+                <!-- Condesa -->
+                <div class="bg-white rounded-3xl p-6 border border-brand-sage/15 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-brand-mint text-brand-dark flex items-center justify-center font-bold mb-4 text-base">📍</div>
+                        <h3 class="font-serif text-lg font-bold text-brand-dark">Condesa</h3>
+                        <p class="text-xs text-brand-muted mt-1 mb-4">Av. Ámsterdam #92, Cuauhtémoc, CDMX</p>
+                        <div class="space-y-1.5 text-xs text-brand-dark/80 mb-6">
+                            <p><i class="fa-regular fa-clock text-brand-sage mr-2"></i>Lun - Dom: 10:00 - 20:00 hrs</p>
+                            <p><i class="fa-solid fa-phone text-brand-sage mr-2"></i>55 5553 1244</p>
+                        </div>
+                    </div>
+                    <button onclick="selectLocation('Condesa', 'Av. Ámsterdam #92, Cuauhtémoc, CDMX', '10:00 - 20:00 hrs')" class="w-full text-center text-xs font-semibold text-brand-sage hover:text-brand-dark py-2.5 rounded-xl border border-brand-sage/20 hover:bg-brand-sageLight transition-colors">
+                        Ver Ubicación & Horarios
+                    </button>
+                </div>
+
+                <!-- Coyoacán -->
+                <div class="bg-white rounded-3xl p-6 border border-brand-sage/15 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-brand-butter text-brand-dark flex items-center justify-center font-bold mb-4 text-base">📍</div>
+                        <h3 class="font-serif text-lg font-bold text-brand-dark">Coyoacán Centro</h3>
+                        <p class="text-xs text-brand-muted mt-1 mb-4">Jardín Centenario #12, Coyoacán, CDMX</p>
+                        <div class="space-y-1.5 text-xs text-brand-dark/80 mb-6">
+                            <p><i class="fa-regular fa-clock text-brand-sage mr-2"></i>Lun - Dom: 11:00 - 21:00 hrs</p>
+                            <p><i class="fa-solid fa-phone text-brand-sage mr-2"></i>55 5659 8832</p>
+                        </div>
+                    </div>
+                    <button onclick="selectLocation('Coyoacán', 'Jardín Centenario #12, Coyoacán, CDMX', '11:00 - 21:00 hrs')" class="w-full text-center text-xs font-semibold text-brand-sage hover:text-brand-dark py-2.5 rounded-xl border border-brand-sage/20 hover:bg-brand-sageLight transition-colors">
+                        Ver Ubicación & Horarios
+                    </button>
+                </div>
+
+                <!-- Polanco -->
+                <div class="bg-white rounded-3xl p-6 border border-brand-sage/15 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-brand-berryLight text-brand-dark flex items-center justify-center font-bold mb-4 text-base">📍</div>
+                        <h3 class="font-serif text-lg font-bold text-brand-dark">Polanco</h3>
+                        <p class="text-xs text-brand-muted mt-1 mb-4">Julio Verne #42, Miguel Hidalgo, CDMX</p>
+                        <div class="space-y-1.5 text-xs text-brand-dark/80 mb-6">
+                            <p><i class="fa-regular fa-clock text-brand-sage mr-2"></i>Lun - Sáb: 10:00 - 19:30 hrs</p>
+                            <p><i class="fa-solid fa-phone text-brand-sage mr-2"></i>55 5280 4419</p>
+                        </div>
+                    </div>
+                    <button onclick="selectLocation('Polanco', 'Julio Verne #42, Miguel Hidalgo, CDMX', '10:00 - 19:30 hrs')" class="w-full text-center text-xs font-semibold text-brand-sage hover:text-brand-dark py-2.5 rounded-xl border border-brand-sage/20 hover:bg-brand-sageLight transition-colors">
+                        Ver Ubicación & Horarios
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO DE PRODUCCIÓN -->
+    <section id="proceso" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-sage bg-brand-sageLight px-3.5 py-1.5 rounded-full">Diagrama de Flujo del Proyecto</span>
+            <h2 class="font-serif text-3xl font-bold text-brand-dark mt-2">¿Cómo Elaboramos Cada Jabón Almíbar?</h2>
+            <p class="text-brand-muted text-sm mt-2">Proceso sustentable extraído del proyecto técnico.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative">
+            <div class="bg-white p-6 rounded-2xl border border-brand-sage/20 text-center relative shadow-sm">
+                <div class="w-9 h-9 rounded-xl bg-brand-sage text-white font-bold text-sm flex items-center justify-center mx-auto mb-3">1</div>
+                <h4 class="font-serif font-bold text-base text-brand-dark mb-1">Recolección</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">Mermas de fruta y verdura no vendibles por imperfección estética.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-brand-sage/20 text-center relative shadow-sm">
+                <div class="w-9 h-9 rounded-xl bg-brand-sage text-white font-bold text-sm flex items-center justify-center mx-auto mb-3">2</div>
+                <h4 class="font-serif font-bold text-base text-brand-dark mb-1">Deshidratación</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">Molienda hasta obtener un polvo fino de fruta estable.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-brand-sage/20 text-center relative shadow-sm">
+                <div class="w-9 h-9 rounded-xl bg-brand-sage text-white font-bold text-sm flex items-center justify-center mx-auto mb-3">3</div>
+                <h4 class="font-serif font-bold text-base text-brand-dark mb-1">Saponificación</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">Mezcla de aceites vegetales puros + solución alcalina + fruto.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-brand-sage/20 text-center relative shadow-sm">
+                <div class="w-9 h-9 rounded-xl bg-brand-sage text-white font-bold text-sm flex items-center justify-center mx-auto mb-3">4</div>
+                <h4 class="font-serif font-bold text-base text-brand-dark mb-1">Moldeado & Curado</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">Reposo natural durante 4 a 6 semanas para balancear pH.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-brand-sage/20 text-center relative shadow-sm">
+                <div class="w-9 h-9 rounded-xl bg-brand-sage text-white font-bold text-sm flex items-center justify-center mx-auto mb-3">5</div>
+                <h4 class="font-serif font-bold text-base text-brand-dark mb-1">Empaque Eco</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">Empaquetado compostable en cajas biodegradables.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CON AUTORAS -->
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t border-brand-sage/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-brand-sage flex items-center justify-center text-white">
+                            🌿
+                        </div>
+                        <span class="font-serif text-2xl font-bold">ALMÍBAR</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Jabones artesanales naturales hechos con conciencia ecológica y frutas reutilizadas en la Ciudad de México.
+                    </p>
+                    <div class="flex space-x-3 text-sm pt-2">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-sage transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-sage transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-sage transition-colors" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-sm mb-4 text-brand-peach">Navegación</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#destacados" class="hover:text-white transition-colors">Catálogo de Jabones</a></li>
+                        <li><a href="#proceso" class="hover:text-white transition-colors">Proceso Técnico Eco</a></li>
+                        <li><a href="#sucursales" class="hover:text-white transition-colors">Sucursales CDMX</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-sm mb-4 text-brand-peach">Equipo Creador del Proyecto</h4>
+                    <ul class="space-y-1.5 text-xs text-gray-300 font-medium">
+                        <li>• Ailén Adriana Pérez Tovar</li>
+                        <li>• Paola Bojalil Ruisánchez</li>
+                        <li>• Carolina Hernández Ortega</li>
+                        <li>• Mariana Alejandra Terán Villalba</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-sm mb-4 text-brand-peach">Comunidad Almíbar CDMX</h4>
+                    <p class="text-xs text-gray-300 mb-3">Recibe ofertas de temporada y avisos de lanzamientos ecológicos.</p>
+                    <form id="newsletterForm" class="space-y-2">
+                        <input type="email" id="newsletterEmail" placeholder="tu@email.com" required class="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand-sage">
+                        <button type="submit" class="w-full bg-brand-sage hover:bg-emerald-600 text-white font-medium text-xs py-2 rounded-xl transition-colors">Suscribirme</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-6 text-center text-xs text-gray-400">
+                <p>&copy; 2026 Almíbar - Jabones Artesanales Naturales. Todos los derechos reservados. Hecho en CDMX.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART SIDEBAR MODAL -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden overflow-hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeCart()"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-6 bg-brand-sageLight border-b border-brand-sage/20 flex items-center justify-between">
+                    <h3 class="font-serif text-lg font-bold text-brand-dark flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-brand-sage"></i> Tu Carrito Almíbar
+                    </h3>
+                    <button onclick="closeCart()" class="text-gray-400 hover:text-brand-dark p-1" aria-label="Cerrar Carrito">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="cartItems" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                    <p id="emptyCartMsg" class="text-center text-sm text-brand-muted py-12">Tu carrito está vacío.<br>¡Añade tu jabón de frutas favorito!</p>
+                </div>
+
+                <div class="p-6 border-t border-gray-100 bg-white space-y-4">
+                    <div class="flex justify-between text-sm font-semibold text-brand-dark">
+                        <span>Total estimado:</span>
+                        <span id="cartTotal" class="font-serif text-xl">$0 MXN</span>
+                    </div>
+                    <p class="text-[11px] text-brand-muted">Impuestos incluidos. Envío en CDMX o recolección gratuita en sucursales.</p>
+                    <button onclick="proceedToCheckout()" class="w-full bg-brand-sage hover:bg-brand-dark text-white font-medium py-3.5 rounded-2xl transition-colors shadow-md text-sm">
+                        Proceder al Pago
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM INFORMATION MODAL (Sustituto de alert) -->
+    <div id="infoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-brand-sage/20 text-center space-y-4">
+            <div id="infoModalIcon" class="w-12 h-12 bg-brand-sageLight text-brand-sage rounded-2xl flex items-center justify-center text-2xl mx-auto">
+                🌿
+            </div>
+            <h3 id="infoModalTitle" class="font-serif text-lg font-bold text-brand-dark">Mensaje</h3>
+            <p id="infoModalText" class="text-xs text-brand-muted leading-relaxed"></p>
+            <button onclick="closeInfoModal()" class="w-full bg-brand-sage hover:bg-brand-dark text-white font-medium py-2.5 rounded-xl text-xs transition-colors">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Cart State
+        let cart = [];
+
+        function addToCart(title, price) {
+            const existing = cart.find(item => item.title === title);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ title, price, quantity: 1 });
+            }
+            updateCartUI();
+            
+            // Notification toast
+            showToast(`¡${title} añadido al carrito!`);
+        }
+
+        function updateCartUI() {
+            const cartBadge = document.getElementById('cartBadge');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            cartBadge.innerText = totalCount;
+            cartTotal.innerText = `$${totalPrice} MXN`;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `<p class="text-center text-sm text-brand-muted py-12">Tu carrito está vacío.<br>¡Añade tu jabón de frutas favorito!</p>`;
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="flex items-center justify-between p-3.5 bg-brand-sageLight/50 rounded-2xl border border-brand-sage/10">
+                        <div>
+                            <h4 class="font-serif text-sm font-bold text-brand-dark">${item.title}</h4>
+                            <p class="text-xs text-brand-muted">$${item.price} MXN c/u</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-semibold px-2.5 py-1 bg-white rounded-lg border text-brand-dark shadow-sm">x${item.quantity}</span>
+                            <button onclick="removeFromCart(${index})" class="text-rose-500 hover:text-rose-700 p-1.5 text-xs" aria-label="Eliminar producto">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 z-50 bg-brand-dark text-white text-xs px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 transition-all duration-300 transform translate-y-0';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-brand-sage"></i> ${message}`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
+        }
+
+        // Custom Modal Control
+        function openInfoModal(title, text, icon = '🌿') {
+            document.getElementById('infoModalTitle').innerText = title;
+            document.getElementById('infoModalText').innerText = text;
+            document.getElementById('infoModalIcon').innerText = icon;
+            document.getElementById('infoModal').classList.remove('hidden');
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.add('hidden');
+        }
+
+        function selectLocation(name, address, hours) {
+            openInfoModal(
+                `Sucursal ${name}`,
+                `📍 Dirección: ${address}\n⏰ Horario: ${hours}\n\n¡Visítanos para probar las muestras naturales y rellenar tu jabonera!`,
+                '📍'
+            );
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                openInfoModal('Carrito Vacío', 'Agrega al menos un jabón artesanal para continuar con la compra.', '🛍️');
+                return;
+            }
+            closeCart();
+            openInfoModal(
+                '¡Pedido Confirmado!',
+                'Hemos recibido tu orden. Te enviamos un correo con la guía de rastreo para entrega en CDMX o instrucciones de recolección.',
+                '✨'
+            );
+            cart = [];
+            updateCartUI();
+        }
+
+        // Cart Drawer Controls
+        const cartModal = document.getElementById('cartModal');
+        document.getElementById('openCartBtn').addEventListener('click', () => {
+            cartModal.classList.remove('hidden');
+        });
+        function closeCart() {
+            cartModal.classList.add('hidden');
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Newsletter Handler
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            openInfoModal('¡Suscripción Exitosa!', `Gracias por unirte a la comunidad Almíbar con el correo: ${email}`, '💌');
+            document.getElementById('newsletterEmail').value = '';
+        });
+    </script>
+</body>
+</html>
